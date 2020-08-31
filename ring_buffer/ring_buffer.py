@@ -5,7 +5,14 @@ class RingBuffer:
         self.pointer = 0
 
     def append(self, item):
-        pass
+        # setting the value/pointer to item
+        self.value[self.pointer] = item
+        # print('item:', item)
+        # increment pointer through each value
+        self.pointer += 1
+        # if pointer == capcity, set pointer back to 0
+        if self.pointer == self.capacity:
+            self.pointer = 0
 
     def get(self):
         # set empty list to variable
@@ -20,10 +27,18 @@ class RingBuffer:
 
 buffer = RingBuffer(3)
 
-buffer.get() # should return empty
+print(buffer.get()) # should return empty
 
-# buffer.append()
-# buffer.append()
-# buffer.append()
+buffer.append('a')
+buffer.append('b')
+buffer.append('c')
 
-buffer.get() # should return 3 values
+print(buffer.get()) # should return 3 values
+
+buffer.append('d')
+print(buffer.get()) # returns 'd', 'b', 'c'
+
+buffer.append('e')
+buffer.append('f')
+
+print(buffer.get()) # returns 'd', 'e', 'f'
