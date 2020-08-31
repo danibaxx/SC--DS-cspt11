@@ -12,7 +12,9 @@ class RingBuffer:
         items = []
         # return all elements in given order
         # should not return None
-
+        for i in self.value:
+            if i != None:
+                items.append(i)
         #return items
 
 buffer = RingBuffer(3)
