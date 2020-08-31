@@ -16,6 +16,7 @@ class RingBuffer:
             if i != None:
                 items.append(i)
         #return items
+        return items
 
 buffer = RingBuffer(3)
 
